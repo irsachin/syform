@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form</title>
+</head>
+<body>
+    <h2>Contact Form</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Your Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="sender_email">Your Email:</label><br>
+        <input type="email" id="sender_email" name="sender_email" required><br><br>
+        
+        <label for="receiver_email">Recipient Email:</label><br>
+        <input type="email" id="receiver_email" name="receiver_email" required><br><br>
+        
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
