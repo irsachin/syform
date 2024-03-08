@@ -7,8 +7,8 @@ class MyFormSerializer(serializers.ModelSerializer):
         fields = ['formid', 'form_title', 'form_html', 'is_published']
 
 class UserSchemaSerializer(serializers.ModelSerializer):
-    from_id = MyFormSerializer()  # Serialize the related MyForm instance
+    form_id = serializers.PrimaryKeyRelatedField(source='form_id.formid', read_only=True)  # Serialize the formid of the related MyForm instance
 
     class Meta:
         model = UserSchema
-        fields = ['form_name','store_id', 'form_id', 'form_details']
+        fields = ['form_name', 'store_id', 'form_id', 'form_details']

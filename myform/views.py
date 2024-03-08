@@ -1,11 +1,8 @@
-from django.shortcuts import render
-from rest_framework import generics 
+from rest_framework import generics
 from .models import MyForm, UserSchema
 from .serializers import MyFormSerializer, UserSchemaSerializer
 from django.core.mail import send_mail
-from django.conf import settings
-
-from django.shortcuts import render
+from django.shortcuts import render  # Remove this line if not needed
 
 def index(request):
     if request.method == 'POST':
@@ -24,12 +21,10 @@ def index(request):
         )
     return render(request, 'index.html')
 
-
-
 class MyFormListCreate(generics.ListCreateAPIView):
     queryset = MyForm.objects.all()
     serializer_class = MyFormSerializer
 
 class UserSchemaListCreate(generics.ListCreateAPIView):
     queryset = UserSchema.objects.all()
-    serializer_class=UserSchemaSerializer
+    serializer_class = UserSchemaSerializer
