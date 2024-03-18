@@ -53,6 +53,7 @@ INSTALLED_APPS = [
 EXTERNAL_APPS = [
     'myform',
     'rest_framework',
+    'corsheaders',
 ]
 
 # Combine the lists
@@ -71,6 +72,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'syform.urls'
@@ -145,3 +148,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# cors for the allow origins 
+CORS_ALLOWED_ORIGINS = [
+    "sachinji.pythonanywhere.com",
+    "https://example.com",
+]
